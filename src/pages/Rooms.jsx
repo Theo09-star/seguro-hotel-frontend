@@ -1,79 +1,58 @@
-// src/pages/Rooms.jsx
-// import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Bed, Users, Maximize, Wifi, Coffee, Wind, Star } from 'lucide-react';
+import { Bed, Users, Maximize, Star } from 'lucide-react';
 import './Rooms.css';
 import { useEffect, useState } from "react";
-import { color } from 'framer-motion';
+import { API_URL } from "../config";
 
 export default function Rooms() {
+
   const [filter, setFilter] = useState('all');
   const [priceRange, setPriceRange] = useState(500);
-
   const [rooms, setRooms] = useState([]);
 
-useEffect(() => {
-  fetch("http://localhost/backend/api/getRooms.php")
-    .then(res => res.json())
-    .then(data => setRooms(data))
-    .catch(err => console.error(err));
-}, []);
+  useEffect(() => {
+    fetch(`${API_URL}/getRooms.php`)
+      .then(res => res.json())
+      .then(data => setRooms(data))
+      .catch(err => console.error("Erreur API :", err));
+  }, []);
 
   const filteredRooms = rooms.filter(room => {
     const categoryMatch = filter === 'all' || room.category === filter;
-    const priceMatch = room.price <= priceRange;
+    const priceMatch = Number(room.price) <= Number(priceRange);
     return categoryMatch && priceMatch;
   });
 
   return (
     <div className="rooms-page">
-      {/* HEADER */}
+
       <div className="rooms-header">
         <h1>Nos Chambres</h1>
         <p>Découvrez le confort et l'élégance de nos hébergements</p>
       </div>
 
       <div className="rooms-container">
-        {/* SIDEBAR FILTERS */}
+
         <aside className="filters-sidebar">
+
           <div className="filter-section">
             <h3>Catégorie</h3>
             <div className="filter-options">
-              <button 
-                className={filter === 'all' ? 'active' : ''}
-                onClick={() => setFilter('all')}
-              >
-                Toutes
-              </button>
-              <button 
-                className={filter === 'standard' ? 'active' : ''}
-                onClick={() => setFilter('standard')}
-              >
-                Standard
-              </button>
-              <button 
-                className={filter === 'deluxe' ? 'active' : ''}
-                onClick={() => setFilter('deluxe')}
-              >
-                Deluxe
-              </button>
-              <button 
-                className={filter === 'suite' ? 'active' : ''}
-                onClick={() => setFilter('suite')}
-              >
-                Suite
-              </button>
+              <button className={filter === 'all' ? 'active' : ''} onClick={() => setFilter('all')}>Toutes</button>
+              <button className={filter === 'standard' ? 'active' : ''} onClick={() => setFilter('standard')}>Standard</button>
+              <button className={filter === 'deluxe' ? 'active' : ''} onClick={() => setFilter('deluxe')}>Deluxe</button>
+              <button className={filter === 'suite' ? 'active' : ''} onClick={() => setFilter('suite')}>Suite</button>
             </div>
           </div>
 
           <div className="filter-section">
             <h3>Prix Maximum: ${priceRange}</h3>
-            <input 
+            <input
               type="range"
               min="50"
               max="500"
               value={priceRange}
-              onChange={(e) => setPriceRange(e.target.value)}
+              onChange={(e) => setPriceRange(Number(e.target.value))}
               className="price-slider"
             />
             <div className="price-labels">
@@ -82,58 +61,31 @@ useEffect(() => {
             </div>
           </div>
 
-          <div className="filter-section">
-            <h3>Équipements</h3>
-            <label className="checkbox-label">
-              <input type="checkbox" />
-              <span>WiFi Gratuit</span>
-            </label>
-            <label className="checkbox-label">
-              <input type="checkbox" />
-              <span>Climatisation</span>
-            </label>
-            <label className="checkbox-label">
-              <input type="checkbox" />
-              <span>Balcon</span>
-            </label>
-            <label className="checkbox-label">
-              <input type="checkbox" />
-              <span>Mini-bar</span>
-            </label>
-          </div>
         </aside>
 
-        {/* ROOMS GRID */}
         <div className="rooms-content">
+
           <div className="results-header">
             <p>{filteredRooms.length} chambres disponibles</p>
-            <select className="sort-select">
-              <option>Prix croissant</option>
-              <option>Prix décroissant</option>
-              <option>Popularité</option>
-            </select>
           </div>
 
           <div className="rooms-grid-modern">
             {filteredRooms.map(room => (
+
               <div key={room.id} className="room-card-modern">
+
                 <div className="room-badge-container">
                   {!room.available && (
                     <span className="unavailable-badge">Complet</span>
-                  )}
-                  {room.rating === 5 && (
-                    <span className="premium-badge">Premium</span>
                   )}
                 </div>
 
                 <div className="room-image-modern">
                   <img src={room.image} alt={room.name} />
-                  <div className="quick-view">
-                    <Link to={`/rooms/${room.id}`}>Vue rapide</Link>
-                  </div>
                 </div>
 
                 <div className="room-content-modern">
+
                   <div className="room-title-section">
                     <h3>{room.name}</h3>
                     <div className="stars">
@@ -158,12 +110,6 @@ useEffect(() => {
                     </div>
                   </div>
 
-                  <div className="amenities-tags">
-                    {room.amenities.slice(0, 3).map((amenity, index) => (
-                      <span key={index} className="amenity-tag">{amenity}</span>
-                    ))}
-                  </div>
-
                   <div className="room-footer-modern">
                     <div className="price-section">
                       <span className="from">À partir de</span>
@@ -173,30 +119,33 @@ useEffect(() => {
                         <span className="period">/nuit</span>
                       </div>
                     </div>
-                    
-                    <div className="action-buttons">
-  <Link to={`/rooms/${room.id}`} className="btn-details">
-    Détails
-  </Link>
 
-  {room.available ? (
-    <Link
-      to={`/booking?roomId=${room.id}&room=${encodeURIComponent(room.name)}&price=${room.price}&maxGuests=${room.guests}`}
-      className="btn-reserve"
-    >
-      Réserver
-    </Link>
-  ) : (
-    <button className="btn-reserve disabled-btn" disabled>
-      Indisponible
-    </button>
-  )}
-</div>
+                    <div className="action-buttons">
+                      <Link to={`/rooms/${room.id}`} className="btn-details">
+                        Détails
+                      </Link>
+
+                      {room.available ? (
+                        <Link
+                          to={`/booking?roomId=${room.id}`}
+                          className="btn-reserve"
+                        >
+                          Réserver
+                        </Link>
+                      ) : (
+                        <button className="btn-reserve disabled-btn" disabled>
+                          Indisponible
+                        </button>
+                      )}
+                    </div>
+
                   </div>
                 </div>
               </div>
+
             ))}
           </div>
+
         </div>
       </div>
     </div>
