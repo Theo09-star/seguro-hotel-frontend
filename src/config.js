@@ -1,1 +1,1 @@
-export const API_URL = "https://segurohotel.infinityfreeapp.com/backend/api";
+export const API_URL = "/api";
