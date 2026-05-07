@@ -11,7 +11,7 @@ export default function Rooms() {
   const [rooms, setRooms] = useState([]);
 
   useEffect(() => {
-    fetch(`${API_URL}/getRooms`)
+    fetch(`${API_URL}/getRooms.php`)
       .then(res => res.json())
       .then(data => setRooms(data))
       .catch(err => console.error("Erreur API :", err));
