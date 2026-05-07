@@ -1,0 +1,131 @@
+.booking {
+  padding: 120px 2rem 4rem;
+  background: #f9f9f9;
+}
+.booking,
+.booking * {
+  font-family: 'Playfair Display', serif;
+}
+
+.booking {
+  padding: 120px 2rem 4rem;
+  background: #f9f9f9;
+}
+
+.booking-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.booking-header h1 {
+  color: #1B4D3E;
+   font-family: 'Playfair Display', serif;
+}
+
+.booking-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+}
+
+/* FORM */
+.booking-form {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+.form-step h2 {
+  margin-bottom: 1.5rem;
+  color: #1B4D3E;
+}
+
+.form-step label {
+  display: block;
+  margin-top: 1rem;
+}
+
+.form-step input,
+.form-step select {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 0.5rem;
+  border-radius: 8px;
+  border: 2px solid #E8F5E9;
+}
+
+.form-step input:focus,
+.form-step select:focus {
+  border-color: #D4AF37;
+  outline: none;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+/* SUMMARY */
+.booking-summary {
+  background: linear-gradient(135deg, #1B4D3E, #0F2922);
+  color: white;
+  padding: 2rem;
+  border-radius: 16px;
+  height: fit-content;
+}
+
+.booking-summary h3 {
+  color: #FFD700;
+  margin-bottom: 1rem;
+}
+
+.booking-summary hr {
+  margin: 1.5rem 0;
+  border-color: rgba(255,255,255,0.2);
+}
+
+.booking-summary h2 {
+  color: #FFD700;
+}
+
+/* PROGRESS BAR */
+.progress {
+  height: 6px;
+  background: #E8F5E9;
+  border-radius: 50px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #D4AF37, #FFD700);
+  transition: 0.4s;
+}
+
+.progress-bar.step-1 { width: 33%; }
+.progress-bar.step-2 { width: 66%; }
+.progress-bar.step-3 { width: 100%; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .booking-container {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-summary {
+    margin-top: 2rem;
+  }
+}
+
+.booking-room-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}

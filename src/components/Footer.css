@@ -1,0 +1,188 @@
+/* ============================= */
+/* FOOTER SIMPLE & PREMIUM */
+/* ============================= */
+
+.footer {
+  background: #0F2922;
+  color: white;
+  padding: 4rem 2rem 2rem;
+  font-family: var(--font-heading);
+}
+
+
+/* CONTAINER */
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 3rem;
+  text-align: center;
+}
+
+/* TITRES */
+.footer h2 {
+  color: #FFD700;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.footer h4 {
+  color: #FFD700;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+/* TEXTES */
+.footer p {
+  opacity: 0.85;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+/* LIENS */
+.footer-links a,
+.footer-admin a {
+  display: block;          /* ✅ vertical */
+  margin-bottom: 0.6rem;   /* ✅ espace entre les liens */
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  transition: 0.3s ease;
+  /* font-family: 'Playfair Display', serif; */
+
+}
+.footer-links h4{
+    font-family: 'Playfair Display', serif;
+
+}
+.footer-contact h4{
+      font-family: 'Playfair Display', serif;
+
+}
+.footer-admin h4{
+        font-family: 'Playfair Display', serif;
+
+}
+.footer-admin h3{
+          font-family: 'Playfair Display', serif;
+
+}
+
+.footer-links a:hover,
+.footer-admin a:hover {
+  color: #FFD700;
+  transform: translateY(-3px);
+}
+
+.footer a:hover {
+  color: #FFD700;
+  transform: translateY(-3px);
+}
+
+/* ADMIN */
+.footer-admin {
+  margin-top: 1rem;
+}
+
+.admin-link {
+  display: inline-block;
+  padding: 0.5rem 1.3rem;
+  border-radius: 30px;
+  border: 1px solid rgba(255,255,255,0.3);
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+
+.admin-link:hover {
+  border-color: #FFD700;
+  color: #FFD700;
+  transform: translateY(-3px);
+}
+
+/* NEWSLETTER */
+.footer-newsletter {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-newsletter h3 {
+  color: #FFD700;
+  margin-bottom: 0.5rem;
+}
+
+.footer-newsletter p {
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.newsletter-input {
+  padding: 0.8rem 1rem;
+  width: 260px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+.newsletter-input::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+.newsletter-btn {
+  padding: 0.8rem 1.8rem;
+  border-radius: 30px;
+  border: none;
+  background: #FFD700;
+  color: #0F2922;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.newsletter-btn:hover {
+  background: #D4AF37;
+  transform: translateY(-3px);
+}
+
+.footer-brand h2{
+  font-family: 'Playfair Display', serif;
+
+}
+/* BOTTOM */
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .newsletter-input,
+  .newsletter-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}

@@ -1,0 +1,53 @@
+.room-details {
+  padding-top: 120px;
+}
+
+.room-hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #1B4D3E, #0F2922);
+  color: white;
+}
+
+.room-hero h1 {
+  color: #FFD700;
+}
+
+.room-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 4rem 2rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+}
+
+.room-gallery img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.room-info h2 {
+  margin-bottom: 1rem;
+}
+
+.room-info ul {
+  margin: 1.5rem 0;
+}
+
+.room-info li {
+  margin-bottom: 0.5rem;
+}
+
+.room-price {
+  font-size: 2rem;
+  color: #D4AF37;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .room-container {
+    grid-template-columns: 1fr;
+  }
+}

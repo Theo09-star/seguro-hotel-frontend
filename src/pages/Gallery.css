@@ -1,0 +1,252 @@
+.gallery-luxury {
+  padding-top: 120px;
+  background: #fff;
+}
+
+/* HERO */
+.gallery-hero {
+  text-align: center;
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, #1B4D3E, #0F2922);
+  color: white;
+}
+
+.gallery-hero h1 {
+  font-size: 2.8rem;
+  color: #FFD700;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1rem;
+}
+
+.gallery-hero p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* SECTION */
+.gallery-section {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.gallery-section.reverse {
+  grid-template-columns: 1fr 2fr;
+}
+
+.gallery-large,
+.gallery-small {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.gallery-large img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  transition: 0.6s;
+}
+
+.gallery-small img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  transition: 0.6s;
+}
+
+.gallery-side {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Hover Effect */
+.gallery-large:hover img,
+.gallery-small:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.8),
+    rgba(0,0,0,0.2)
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.gallery-overlay h2,
+.gallery-overlay h3 {
+  color: #FFD700;
+}
+
+.gallery-large:hover .gallery-overlay,
+.gallery-small:hover .gallery-overlay {
+  opacity: 1;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .gallery-section,
+  .gallery-section.reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-large img {
+    height: 350px;
+  }
+}
+
+/* SECTION TROPICALE SPÉCIALE */
+.gallery-section.tropical {
+  background: linear-gradient(
+    135deg,
+    rgba(27, 77, 62, 0.08),
+    rgba(212, 175, 55, 0.05)
+  );
+  padding: 3rem 2rem;
+  border-radius: 30px;
+}
+
+
+/* ============================= */
+/* RATING BADGE STYLE GOLDEN TULIP */
+/* ============================= */
+
+.rating-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(8px);
+  padding: 8px 14px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #FFD700;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  transition: 0.3s ease;
+}
+
+.rating-badge .stars {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+}
+
+.gallery-large:hover .rating-badge,
+.gallery-small:hover .rating-badge {
+  transform: scale(1.05);
+}
+
+
+
+/* ============================= */
+/* RECOMMEND SECTION */
+/* ============================= */
+
+.recommend-section {
+  padding: 6rem 2rem;
+  background: #f9f9f9;
+}
+
+.recommend-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.recommend-header h2 {
+  font-size: 2.5rem;
+  color: #1B4D3E;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1rem;
+}
+
+.recommend-header p {
+  color: #666;
+}
+
+.recommend-grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.recommend-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  transition: 0.4s ease;
+}
+
+.recommend-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+}
+
+.recommend-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.recommend-content {
+  padding: 2rem;
+  text-align: center;
+}
+
+.recommend-content h3 {
+  color: #1B4D3E;
+  margin-bottom: 1rem;
+}
+
+.recommend-rating {
+  margin-top: 1rem;
+  color: #FFD700;
+  font-weight: 600;
+}
+
+.recommend-rating span {
+  color: #666;
+  font-size: 0.9rem;
+  margin-left: 8px;
+}
+
+/* AVIS DÉFILANT */
+.recommend-reviews {
+  margin-top: 4rem;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1B4D3E, #2D5F4F);
+  color: white;
+  padding: 1.5rem 0;
+}
+
+.reviews-track {
+  display: flex;
+  gap: 4rem;
+  animation: scrollReviews 20s linear infinite;
+  white-space: nowrap;
+  font-style: italic;
+  font-size: 1rem;
+}
+
+@keyframes scrollReviews {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}

@@ -1,0 +1,135 @@
+
+/* ============================= */
+/* TYPOGRAPHIE MIX INTER + PLAYFAIR */
+/* ============================= */
+
+.contact {
+  font-family: 'Inter', sans-serif;
+}
+
+.contact h1,
+.contact h2,
+.contact h4 {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 1px;
+}
+
+.contact {
+  padding-top: 120px;
+}
+
+/* HERO */
+.contact-hero {
+  background: linear-gradient(135deg, #1B4D3E, #0F2922);
+  text-align: center;
+  padding: 5rem 2rem;
+  color: white;
+}
+
+.contact-hero h1 {
+  color: #FFD700;
+  margin-bottom: 1rem;
+}
+
+/* CONTAINER */
+.contact-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 4rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+/* FORM */
+.contact-form {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.contact-form h2 {
+  margin-bottom: 2rem;
+  color: #1B4D3E;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.9rem;
+  border-radius: 8px;
+  border: 2px solid #E8F5E9;
+  transition: 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #D4AF37;
+  outline: none;
+}
+
+/* INFO */
+.contact-info {
+  background: linear-gradient(135deg, #1B4D3E, #0F2922);
+  padding: 2.5rem;
+  border-radius: 16px;
+  color: white;
+}
+
+.contact-info h2 {
+  color: #FFD700;
+  margin-bottom: 2rem;
+}
+
+.info-item {
+  margin-bottom: 1.5rem;
+}
+
+.info-item h4 {
+  color: #FFD700;
+  margin-bottom: 0.5rem;
+}
+
+/* MAP */
+.map-container iframe {
+  width: 100%;
+  height: 250px;
+  border-radius: 12px;
+  margin-top: 1rem;
+  border: none;
+}
+
+/* WHATSAPP */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #25D366;
+  color: white;
+  font-size: 1.8rem;
+  padding: 15px;
+  border-radius: 50%;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.1);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info {
+    margin-top: 2rem;
+  }
+}
